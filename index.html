@@ -38,6 +38,18 @@
           <button id="restartBtn" type="button">重新开始</button>
         </section>
 
+        <section id="jumpPanel" class="jump-panel" hidden aria-label="跳转楼层输入">
+          <label>
+            <span>楼层编号</span>
+            <input id="jumpInput" type="number" min="1" inputmode="numeric" placeholder="输入数字" />
+          </label>
+          <div class="jump-actions">
+            <button id="jumpConfirmBtn" class="primary-btn" type="button">确认跳转</button>
+            <button id="jumpCancelBtn" type="button">取消</button>
+          </div>
+          <p id="jumpHint">输入不超过当前总进度的数字。</p>
+        </section>
+
         <section class="audio-controls" aria-label="环境声控制">
           <div class="audio-row">
             <span>环境声</span>

@@ -11,6 +11,11 @@ const els = {
   start: document.querySelector("#startBtn"),
   continue: document.querySelector("#continueBtn"),
   jump: document.querySelector("#jumpBtn"),
+  jumpPanel: document.querySelector("#jumpPanel"),
+  jumpInput: document.querySelector("#jumpInput"),
+  jumpConfirm: document.querySelector("#jumpConfirmBtn"),
+  jumpCancel: document.querySelector("#jumpCancelBtn"),
+  jumpHint: document.querySelector("#jumpHint"),
   restart: document.querySelector("#restartBtn"),
   log: document.querySelector("#storyLog"),
   advancePanel: document.querySelector("#advancePanel"),
@@ -585,12 +590,9 @@ function restart() {
 function jumpToFloor() {
   if (!state.story) return;
   const total = state.story.items.length;
-  const value = window.prompt(`输入要跳转的楼层编号（1-${total}）`);
-  if (value === null) return;
-
-  const floor = Number(value.trim());
+  const floor = Number(els.jumpInput.value);
   if (!Number.isInteger(floor) || floor < 1 || floor > total) {
-    window.alert(`请输入 1 到 ${total} 之间的整数。`);
+    els.jumpHint.textContent = `请输入 1 到 ${total} 之间的整数。`;
     return;
   }
 
@@ -607,10 +609,24 @@ function jumpToFloor() {
   els.intro.classList.add("is-hidden");
   render();
   els.log.lastElementChild?.scrollIntoView({ block: "center", behavior: "smooth" });
+  els.jumpPanel.hidden = true;
+  els.jumpHint.textContent = "输入不超过当前总进度的数字。";
 }
 
 els.start.addEventListener("click", () => playUntilChoice());
 els.continue.addEventListener("click", () => playUntilChoice());
+els.jump.addEventListener("click", () => {
+  if (!state.story) return;
+  els.jumpPanel.hidden = !els.jumpPanel.hidden;
+  els.jumpInput.max = String(state.story.items.length);
+  els.jumpHint.textContent = `输入 1-${state.story.items.length} 的楼层编号。`;
+  if (!els.jumpPanel.hidden) els.jumpInput.focus();
+});
+els.jumpConfirm.addEventListener("click", jumpToFloor);
+els.jumpCancel.addEventListener("click", () => {
+  els.jumpPanel.hidden = true;
+  els.jumpInput.value = "";
+});
 els.soundToggle.addEventListener("click", () => {
   audioState.enabled = !audioState.enabled;
   els.soundToggle.textContent = audioState.enabled ? "关闭" : "开启";
@@ -626,7 +642,6 @@ els.volume.addEventListener("input", () => {
   if (!audioState.currentAudio) return;
   audioState.currentAudio.volume = targetVolume();
 });
-els.jump.addEventListener("click", jumpToFloor);
 els.restart.addEventListener("click", restart);
 window.addEventListener("scroll", () => requestAnimationFrame(updateAudioFromViewport), { passive: true });
 window.addEventListener("resize", () => requestAnimationFrame(updateAudioFromViewport));
