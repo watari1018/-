@@ -94,7 +94,8 @@ const soundScenes = [
     key: "stars",
     label: "星夜风声",
     src: "audio/night-wind.mp3",
-    words: ["星", "银河", "夜空", "宇宙", "天文", "观景台"],
+    volumeScale: 0.5,
+    words: ["星河", "星空", "观星台", "观星", "夜空", "宇宙", "天文"],
   },
   {
     key: "danger",
@@ -198,6 +199,7 @@ const audioState = {
   current: null,
   currentAudio: null,
   enabled: true,
+  retiredAudios: new Set(),
   fadeTimers: new Map(),
 };
 
@@ -205,6 +207,8 @@ const bgmState = {
   current: null,
   currentAudio: null,
   enabled: true,
+  retiredAudios: new Set(),
+  fadeTimers: new Map(),
 };
 
 function escapeHtml(text) {
@@ -359,19 +363,24 @@ function clearBgm(immediate = false) {
 }
 
 function clearAudioLayer(layer, immediate = false) {
-  if (!layer.currentAudio) return;
+  if (!layer.currentAudio) {
+    if (immediate) stopRetiredAudios(layer);
+    return;
+  }
   const oldAudio = layer.currentAudio;
   layer.currentAudio = null;
   layer.current = null;
+  layer.retiredAudios.add(oldAudio);
   fadeAudio(oldAudio, oldAudio.volume, 0, immediate ? 0 : 900, () => {
     oldAudio.pause();
     oldAudio.src = "";
+    layer.retiredAudios.delete(oldAudio);
   });
 }
 
 function playSoundScene(scene) {
   if (!audioState.enabled || !scene) return;
-  playAudioLayer(audioState, scene, targetVolume(), "ambient");
+  playAudioLayer(audioState, scene, targetVolume() * (scene.volumeScale ?? 1), "ambient");
   els.audioSceneText.textContent = scene.label;
 }
 
@@ -383,6 +392,7 @@ function playBgm(range) {
 function playAudioLayer(layer, scene, volume, layerName) {
   if (layer.current === scene.key && layer.currentAudio) return;
 
+  if (layerName === "ambient") stopRetiredAudios(layer);
   const oldAudio = layer.currentAudio;
   const nextAudio = new Audio(scene.src);
   nextAudio.loop = true;
@@ -393,10 +403,28 @@ function playAudioLayer(layer, scene, volume, layerName) {
 
   nextAudio.play().then(() => {
     fadeAudio(nextAudio, 0, volume, 1600);
-    if (oldAudio) fadeAudio(oldAudio, oldAudio.volume, 0, 1200, () => oldAudio.pause());
+    if (oldAudio) {
+      layer.retiredAudios.add(oldAudio);
+      fadeAudio(oldAudio, oldAudio.volume, 0, 900, () => {
+        oldAudio.pause();
+        oldAudio.src = "";
+        layer.retiredAudios.delete(oldAudio);
+      });
+    }
   }).catch(() => {
     if (layerName === "ambient") els.audioSceneText.textContent = "点击继续后播放";
   });
+}
+
+function stopRetiredAudios(layer) {
+  layer.retiredAudios.forEach((audio) => {
+    const timer = layer.fadeTimers.get(audio);
+    if (timer) window.clearInterval(timer);
+    layer.fadeTimers.delete(audio);
+    audio.pause();
+    audio.src = "";
+  });
+  layer.retiredAudios.clear();
 }
 
 function targetVolume() {
@@ -404,7 +432,8 @@ function targetVolume() {
 }
 
 function fadeAudio(audio, from, to, duration, done) {
-  const oldTimer = audioState.fadeTimers.get(audio);
+  const layer = audio === bgmState.currentAudio || bgmState.retiredAudios.has(audio) ? bgmState : audioState;
+  const oldTimer = layer.fadeTimers.get(audio);
   if (oldTimer) window.clearInterval(oldTimer);
   if (duration === 0) {
     audio.volume = to;
@@ -418,11 +447,11 @@ function fadeAudio(audio, from, to, duration, done) {
     audio.volume = from + (to - from) * progress;
     if (progress >= 1) {
       window.clearInterval(timer);
-      audioState.fadeTimers.delete(audio);
+      layer.fadeTimers.delete(audio);
       done?.();
     }
   }, 50);
-  audioState.fadeTimers.set(audio, timer);
+  layer.fadeTimers.set(audio, timer);
 }
 
 function updateAudioFromViewport() {
