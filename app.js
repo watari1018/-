@@ -252,7 +252,7 @@ function roleFor(item) {
 function renderEntry(viewItem) {
   const li = document.createElement("li");
   li.className = `entry entry-${viewItem.kind}`;
-  if (viewItem.id >= 849 && viewItem.id <= 973 && ["miku", "narration"].includes(viewItem.kind)) {
+  if (viewItem.id >= 849 && viewItem.id <= 973 && viewItem.kind === "miku") {
     li.classList.add("entry-alert");
   }
   li.dataset.id = viewItem.id;

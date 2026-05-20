@@ -1,8 +1,8 @@
 {
   "title": "银河缆车 97 log",
   "source": "银河缆车 97 log.docx",
-  "paragraphCount": 986,
-  "characterCount": 41957,
+  "paragraphCount": 1002,
+  "characterCount": 42602,
   "items": [
     {
       "id": 1,
@@ -3573,6 +3573,46 @@
       "raw": "<KP>:看着面前的这一切，又联想到刚才那诡异的物品重置，你意识到——如果时间这样折叠，那么可能这辆列车运行十年或者一百年都不会改变，也永远到达不了目的地了。SanCheck0/1。"
     },
     {
+      "id": 460,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "<祈茗>:",
+      "body": "[分享]time machine (feat. aren park)",
+      "raw": "<祈茗>:[分享]time machine (feat. aren park)"
+    },
+    {
+      "id": 461,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "",
+      "body": "mj apanay/aren park - seen 11:23 pm",
+      "raw": "mj apanay/aren park - seen 11:23 pm"
+    },
+    {
+      "id": 462,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "",
+      "body": "https://y.music.163.com/m/song?fx-wechatnew=t1&fx-wxqd=c&fx-wordtest=c&id=1379918404&PlayerStyles_SynchronousSharing=t3&fx-listentest=t3&H5_DownloadVIPGift=&userid=563872652&playerUIModeId=76001&app_version=9.3.30&dlt=0846",
+      "raw": "https://y.music.163.com/m/song?fx-wechatnew=t1&fx-wxqd=c&fx-wordtest=c&id=1379918404&PlayerStyles_SynchronousSharing=t3&fx-listentest=t3&H5_DownloadVIPGift=&userid=563872652&playerUIModeId=76001&app_version=9.3.30&dlt=0846"
+    },
+    {
+      "id": 463,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "",
+      "body": "来自: 网易云音乐",
+      "raw": "来自: 网易云音乐"
+    },
+    {
+      "id": 464,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "<祈茗>:",
+      "body": ".sc 0/1",
+      "raw": "<祈茗>:.sc 0/1"
+    },
+    {
       "id": 465,
       "speaker": "封不觉（仅跑团使用版）",
       "kind": "dice",
@@ -5173,6 +5213,38 @@
       "raw": "<封不觉（仅跑团使用版）>:<祈茗>的\"侦查\"检定结果为: D100=20/80 <困难成功>"
     },
     {
+      "id": 686,
+      "speaker": "KP",
+      "kind": "kp",
+      "prefix": "<KP>:",
+      "body": "[分享]Timeless",
+      "raw": "<KP>:[分享]Timeless"
+    },
+    {
+      "id": 687,
+      "speaker": "旁白",
+      "kind": "other",
+      "prefix": "",
+      "body": "Delos",
+      "raw": "Delos"
+    },
+    {
+      "id": 688,
+      "speaker": "旁白",
+      "kind": "other",
+      "prefix": "",
+      "body": "https://y.music.163.com/m/song?fx-wechatnew=t1&fx-wxqd=c&fx-wordtest=c&id=2744765100&PlayerStyles_SynchronousSharing=t3&fx-listentest=t3&H5_DownloadVIPGift=&userid=304807947&playerUIModeId=76001&app_version=9.5.05&dlt=0846",
+      "raw": "https://y.music.163.com/m/song?fx-wechatnew=t1&fx-wxqd=c&fx-wordtest=c&id=2744765100&PlayerStyles_SynchronousSharing=t3&fx-listentest=t3&H5_DownloadVIPGift=&userid=304807947&playerUIModeId=76001&app_version=9.5.05&dlt=0846"
+    },
+    {
+      "id": 689,
+      "speaker": "旁白",
+      "kind": "other",
+      "prefix": "",
+      "body": "来自: 网易云音乐",
+      "raw": "来自: 网易云音乐"
+    },
+    {
       "id": 690,
       "speaker": "KP",
       "kind": "kp",
@@ -6565,6 +6637,14 @@
       "raw": "<祈茗>:我转身就往餐厅躲"
     },
     {
+      "id": 868,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "<祈茗>:",
+      "body": ".r1d3",
+      "raw": "<祈茗>:.r1d3"
+    },
+    {
       "id": 870,
       "speaker": "KP",
       "kind": "kp",
@@ -6813,6 +6893,14 @@
       "raw": "<祈茗>:理解他的意思之后我狼狈地离开藏匿的地点，前往卧室"
     },
     {
+      "id": 913,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "<祈茗>:",
+      "body": ".r1d3",
+      "raw": "<祈茗>:.r1d3"
+    },
+    {
       "id": 915,
       "speaker": "KP",
       "kind": "kp",
@@ -6917,6 +7005,30 @@
       "raw": "啧。"
     },
     {
+      "id": 931,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "<祈茗>:",
+      "body": "听天由命 .r1d5",
+      "raw": "<祈茗>:听天由命 .r1d5"
+    },
+    {
+      "id": 932,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "<祈茗>:",
+      "body": ".r1d5",
+      "raw": "<祈茗>:.r1d5"
+    },
+    {
+      "id": 934,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "<祈茗>:",
+      "body": ".r1d3",
+      "raw": "<祈茗>:.r1d3"
+    },
+    {
       "id": 936,
       "speaker": "KP",
       "kind": "kp",
@@ -7011,6 +7123,22 @@
       "prefix": "<KP>:",
       "body": "你要改变藏身地点吗？",
       "raw": "<KP>:你要改变藏身地点吗？"
+    },
+    {
+      "id": 956,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "<祈茗>:",
+      "body": ".r1d5",
+      "raw": "<祈茗>:.r1d5"
+    },
+    {
+      "id": 958,
+      "speaker": "祈茗",
+      "kind": "qiming",
+      "prefix": "<祈茗>:",
+      "body": ".r1d3",
+      "raw": "<祈茗>:.r1d3"
     },
     {
       "id": 960,
