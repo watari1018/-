@@ -446,6 +446,18 @@ h1 {
   background: rgba(42, 17, 24, 0.38);
 }
 
+.entry-alert {
+  border-color: rgba(255, 42, 42, 0.68);
+  background: rgba(72, 4, 10, 0.72);
+  box-shadow: 0 0 0 1px rgba(255, 42, 42, 0.22), 0 18px 52px rgba(80, 0, 8, 0.32);
+}
+
+.entry-alert .entry-speaker,
+.entry-alert .entry-text {
+  color: #ff3b3b;
+  text-shadow: 0 0 16px rgba(255, 0, 0, 0.22);
+}
+
 .entry-narration .entry-text {
   color: var(--kp);
 }
