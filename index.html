@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>银河缆车和某个雪夜</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true">
+      <div class="stars"></div>
+      <div class="snow"></div>
+      <div class="cable-line cable-line-a"></div>
+      <div class="cable-line cable-line-b"></div>
+      <div class="aurora"></div>
+    </div>
+
+    <main class="app-shell">
+      <aside class="control-panel" aria-label="游戏控制台">
+        <section class="title-block">
+          <p class="kicker">文字游戏</p>
+          <h1>银河缆车和某个雪夜</h1>
+          <p id="sceneLabel" class="scene-label">雪夜候车</p>
+        </section>
+
+        <section class="meter" aria-label="阅读进度">
+          <div class="meter-row">
+            <span>进度</span>
+            <strong id="progressText">0 / 0</strong>
+          </div>
+          <div class="progress-track">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+        </section>
+
+        <section class="actions" aria-label="主要操作">
+          <button id="jumpBtn" type="button">跳转楼层</button>
+          <button id="restartBtn" type="button">重新开始</button>
+        </section>
+
+        <section class="audio-controls" aria-label="环境声控制">
+          <div class="audio-row">
+            <span>环境声</span>
+            <button id="soundToggleBtn" type="button">关闭</button>
+          </div>
+          <label class="volume-control">
+            <span>音量</span>
+            <input id="volumeSlider" type="range" min="0" max="100" value="34" />
+          </label>
+          <p id="audioSceneText">等待开始</p>
+        </section>
+
+        <section class="game-note" aria-label="当前状态">
+          <p id="modeText">等待开始。</p>
+        </section>
+      </aside>
+
+      <section class="story-stage" aria-label="故事正文">
+        <div id="introCard" class="intro-card">
+          <p>上等车厢的灯光亮着，雪落在窗外。</p>
+          <button id="startBtn" class="primary-btn" type="button">开始游戏</button>
+        </div>
+        <ol id="storyLog" class="story-log"></ol>
+        <div id="advancePanel" class="advance-panel" hidden>
+          <button id="continueBtn" class="primary-btn" type="button">继续</button>
+        </div>
+        <div id="choicePanel" class="choice-panel" hidden>
+          <p id="choicePrompt">你要怎么做？</p>
+          <div id="choices" class="choices"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="data/story.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
