@@ -397,7 +397,7 @@ function playBgm(range) {
 function playAudioLayer(layer, scene, volume, layerName) {
   if (layer.current === scene.key && layer.currentAudio) return;
 
-  if (layerName === "ambient") stopRetiredAudios(layer);
+  stopRetiredAudios(layer);
   const oldAudio = layer.currentAudio;
   const nextAudio = new Audio(scene.src);
   nextAudio.loop = true;
